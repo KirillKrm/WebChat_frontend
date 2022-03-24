@@ -1,7 +1,7 @@
-import * as React from 'react';
-import styled from 'styled-components/macro';
-import { ReactComponent as DocumentationIcon } from './assets/documentation-icon.svg';
-import { ReactComponent as GithubIcon } from './assets/github-icon.svg';
+import * as React from 'react'
+import styled from 'styled-components/macro'
+import { ReactComponent as DocumentationIcon } from './assets/documentation-icon.svg'
+import { ReactComponent as GithubIcon } from './assets/github-icon.svg'
 
 export function Nav() {
   return (
@@ -25,16 +25,16 @@ export function Nav() {
         Github
       </Item>
     </Wrapper>
-  );
+  )
 }
 
 const Wrapper = styled.nav`
   display: flex;
   margin-right: -1rem;
-`;
+`
 
 const Item = styled.a`
-  color: ${p => p.theme.primary};
+  color: ${(p) => p.theme.primary};
   cursor: pointer;
   text-decoration: none;
   display: flex;
@@ -54,4 +54,4 @@ const Item = styled.a`
   .icon {
     margin-right: 0.25rem;
   }
-`;
+`

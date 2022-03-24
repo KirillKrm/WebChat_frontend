@@ -1,8 +1,8 @@
-import * as React from 'react';
-import styled from 'styled-components/macro';
-import { ReactComponent as CRALogo } from './assets/cra-logo.svg';
-import { ReactComponent as RPLogo } from './assets/rp-logo.svg';
-import { ReactComponent as PlusSign } from './assets/plus-sign.svg';
+import * as React from 'react'
+import styled from 'styled-components/macro'
+import { ReactComponent as CRALogo } from './assets/cra-logo.svg'
+import { ReactComponent as RPLogo } from './assets/rp-logo.svg'
+import { ReactComponent as PlusSign } from './assets/plus-sign.svg'
 
 export function Logos() {
   return (
@@ -11,13 +11,13 @@ export function Logos() {
       <PlusSign className="sign" />
       <RPLogo className="logo" />
     </Wrapper>
-  );
+  )
 }
 
 const Wrapper = styled.div`
   display: flex;
   align-items: center;
-  color: ${p => p.theme.border};
+  color: ${(p) => p.theme.border};
 
   .logo {
     width: 4.5rem;
@@ -29,4 +29,4 @@ const Wrapper = styled.div`
     height: 2rem;
     margin: 0 2rem;
   }
-`;
+`

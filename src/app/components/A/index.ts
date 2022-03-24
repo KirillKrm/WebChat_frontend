@@ -1,7 +1,7 @@
-import styled from 'styled-components/macro';
+import styled from 'styled-components/macro'
 
 export const A = styled.a`
-  color: ${p => p.theme.primary};
+  color: ${(p) => p.theme.primary};
   text-decoration: none;
 
   &:hover {
@@ -12,4 +12,4 @@ export const A = styled.a`
   &:active {
     opacity: 0.4;
   }
-`;
+`

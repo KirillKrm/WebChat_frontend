@@ -1,16 +1,16 @@
-import React, { memo } from 'react';
-import styled from 'styled-components/macro';
+import React, { memo } from 'react'
+import styled from 'styled-components/macro'
 
 type InputProps = React.DetailedHTMLProps<
   React.InputHTMLAttributes<HTMLInputElement>,
   HTMLInputElement
->;
+>
 
 interface Props extends InputProps {
-  id: string;
-  label: string;
-  className?: string;
-  isSelected?: boolean;
+  id: string
+  label: string
+  className?: string
+  isSelected?: boolean
 }
 
 export const Radio = memo(
@@ -20,9 +20,9 @@ export const Radio = memo(
         <input type="radio" id={id} checked={isSelected} {...restOf} />
         <label htmlFor={id}>{label}</label>
       </Wrapper>
-    );
-  },
-);
+    )
+  }
+)
 
 const Wrapper = styled.div`
   input[type='radio'] {
@@ -40,11 +40,11 @@ const Wrapper = styled.div`
       position: relative;
       cursor: pointer;
       font-size: 0.875rem;
-      color: ${p => p.theme.text};
+      color: ${(p) => p.theme.text};
       z-index: 1;
 
       a {
-        color: ${p => p.theme.text};
+        color: ${(p) => p.theme.text};
         text-decoration: none;
       }
 
@@ -56,9 +56,9 @@ const Wrapper = styled.div`
         width: 1rem;
         height: 1rem;
         border-radius: 50%;
-        background-color: ${p => p.theme.background};
+        background-color: ${(p) => p.theme.background};
         content: '';
-        border: 2px solid ${p => p.theme.border};
+        border: 2px solid ${(p) => p.theme.border};
         transition: all 0.1s;
       }
 
@@ -72,12 +72,12 @@ const Wrapper = styled.div`
         border-radius: 50%;
         top: 0.5625rem;
         left: 0.3125rem;
-        background-color: ${p => p.theme.background};
+        background-color: ${(p) => p.theme.background};
       }
 
       &:hover {
         &::before {
-          border-color: ${p => p.theme.primary};
+          border-color: ${(p) => p.theme.primary};
         }
       }
     }
@@ -89,7 +89,7 @@ const Wrapper = styled.div`
 
         &:hover {
           &::before {
-            border-color: ${p => p.theme.border};
+            border-color: ${(p) => p.theme.border};
           }
         }
       }
@@ -99,10 +99,10 @@ const Wrapper = styled.div`
       + label {
         &::before {
           box-shadow: 0 0 0 3px
-            ${p =>
+            ${(p) =>
               p.theme.primary.replace(
                 /rgba?(\(\s*\d+\s*,\s*\d+\s*,\s*\d+)(?:\s*,.+?)?\)/,
-                'rgba$1,0.2)',
+                'rgba$1,0.2)'
               )};
         }
       }
@@ -111,8 +111,8 @@ const Wrapper = styled.div`
     &:checked {
       + label {
         &::before {
-          background-color: ${p => p.theme.primary};
-          border-color: ${p => p.theme.primary};
+          background-color: ${(p) => p.theme.primary};
+          border-color: ${(p) => p.theme.primary};
         }
 
         &::after {
@@ -121,4 +121,4 @@ const Wrapper = styled.div`
       }
     }
   }
-`;
+`

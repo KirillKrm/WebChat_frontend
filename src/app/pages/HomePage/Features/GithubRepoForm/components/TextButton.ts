@@ -1,4 +1,4 @@
-import styled from 'styled-components/macro';
+import styled from 'styled-components/macro'
 
 export const TextButton = styled.button`
   background: none;
@@ -6,7 +6,7 @@ export const TextButton = styled.button`
   padding: 0;
   margin: 0;
   border: none;
-  color: ${p => p.theme.primary};
+  color: ${(p) => p.theme.primary};
   cursor: pointer;
 
   &:hover {
@@ -17,4 +17,4 @@ export const TextButton = styled.button`
   &:active {
     opacity: 0.4;
   }
-`;
+`
