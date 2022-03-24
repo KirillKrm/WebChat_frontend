@@ -1,5 +1,5 @@
-import { createGlobalStyle } from 'styled-components';
-import { StyleConstants } from './StyleConstants';
+import { createGlobalStyle } from 'styled-components'
+import { StyleConstants } from './StyleConstants'
 /* istanbul ignore next */
 export const GlobalStyle = createGlobalStyle`
   html,
@@ -12,7 +12,7 @@ export const GlobalStyle = createGlobalStyle`
   body {
     font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
     padding-top: ${StyleConstants.NAV_BAR_HEIGHT};
-    background-color: ${p => p.theme.background};
+    background-color: ${(p) => p.theme.background};
   }
 
   body.fontLoaded {
@@ -33,4 +33,4 @@ export const GlobalStyle = createGlobalStyle`
     width: 1.5rem;
     height: 1.5rem;
   }
-`;
+`
