@@ -1,7 +1,42 @@
 import * as React from 'react'
+import './App.css'
 
 export function App() {
-  return <div>asdasda</div>
+  return (
+    <div className="app">
+      <div className="app__cam">
+        <label>NAME</label>
+        <div className="cam__sound"></div>
+      </div>
+      <div className="app__buttons">
+        {
+          //TODO one class
+          /* <button className="Micro">M</button>
+        <button className="Camera">C</button> */
+        }
+      </div>
+      <div className="app__inputName">
+        <label>Name:</label>
+        <input></input>
+      </div>
+      <div className="app__panels">
+        <div className="panels__connect">
+          <form className="connect_form">
+            <p>Connect to room</p>
+            <div className="form__input">
+              <label>Room ID:</label>
+              <input></input>
+            </div>
+            <input type="submit" value="Create"></input>
+          </form>
+        </div>
+        <div className="panels__create">
+          <p>Create room</p>
+          <button>Create</button>
+        </div>
+      </div>
+    </div>
+  )
 }
 
 // import { Helmet } from 'react-helmet-async';
