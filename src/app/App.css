@@ -46,17 +46,12 @@
   margin-bottom: 5%;
 }
 
-.Micro{
+.button{
   width: 50px;
   height: 50px;
-  border-radius: 100%;
-  margin-right: 5%;
-}
-
-.Camera{
-  width: 50px;
-  height: 50px;
-  border-radius: 100%;
+  border-radius: 50%;
+  margin-left: 2%;
+  margin-right: 2%;
 }
 
 .app__inputName {
@@ -88,20 +83,23 @@
   font-size: 20px;
 }
 
-.connect_form{
+.connect__form{
   display: flex;
   flex-direction: column;
+  width: 400px;
+  height: 125px;
   justify-content: space-around;
   align-items: center;
 }
 
-.InputID {
+.form__input {
   display: flex;
+  flex-direction: row;
   font-size: 20px;
-  justify-content: center;
+  align-items: center;
 }
 
-.panels__connect button {
+.connect__form button {
   font-size: 20px;
   width: 50%;
 }
