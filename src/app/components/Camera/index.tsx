@@ -1,5 +1,5 @@
 import React from 'react'
-import '../../App.css'
+import '../../../styles/App.module.css'
 
 export const Camera: React.FC = () => {
   return (

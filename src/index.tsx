@@ -4,12 +4,12 @@ import * as ReactDOM from 'react-dom'
 // Use consistent styling
 // import 'sanitize.css/sanitize.css';//
 
-import { App } from 'app'
+import MainPage from 'pages/index'
 
 ReactDOM.render(
   //research
   <React.StrictMode>
-    <App />
+    <MainPage />
   </React.StrictMode>,
   document.getElementById('root') as HTMLElement
 )

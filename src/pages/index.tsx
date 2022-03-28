@@ -1,28 +1,23 @@
 import * as React from 'react'
-import './App.css'
-import { Camera } from './components/Camera/index'
-import { Button } from './components/Button/index'
+import 'styles/global.css'
+import { Camera } from '../app/components/Camera/index'
+import { Button } from '../app/components/Button/index'
+import { Input } from '../app/components/Input/index'
 
-export function App() {
+function MainPage() {
   return (
     <div className="app">
       <Camera />
       <div className="app__buttons">
-        <Button />
-        <Button />
+        <Button name="M" />
+        <Button name="C" />
       </div>
-      <div className="app__inputName">
-        <label>Name:</label>
-        <input></input>
-      </div>
+      <Input name="Name:" />
       <div className="app__panels">
         <div className="panels__connect">
           <form className="connect__form">
             <p>Connect to room</p>
-            <div className="form__input">
-              <label>Room ID:</label>
-              <input></input>
-            </div>
+            <Input name="Room ID:" />
             <button type="submit" onClick={() => alert('Connect')}>
               Connect
             </button>
@@ -37,7 +32,7 @@ export function App() {
   )
 }
 
-export default App
+export default MainPage
 
 // import { Helmet } from 'react-helmet-async';
 // import { Switch, Route, BrowserRouter } from 'react-router-dom';

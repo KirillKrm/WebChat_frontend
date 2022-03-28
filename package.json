@@ -3,8 +3,8 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
+    "start": "next start",
+    "build": "next build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "start:prod": "yarn run build && serve -s build",
@@ -17,7 +17,8 @@
     "generate": "plop --plopfile internals/generators/plopfile.ts",
     "cleanAndSetup": "ts-node ./internals/scripts/clean.ts",
     "prettify": "prettier --write",
-    "extract-messages": "i18next-scanner --config=internals/extractMessages/i18next-scanner.config.js"
+    "extract-messages": "i18next-scanner --config=internals/extractMessages/i18next-scanner.config.js",
+    "dev": "next dev"
   },
   "dependencies": {
     "@reduxjs/toolkit": "1.7.1",
@@ -50,6 +51,7 @@
     "inquirer-directory": "2.2.0",
     "jest-styled-components": "7.0.8",
     "lint-staged": "12.1.7",
+    "next": "12.1.1",
     "node-plop": "0.26.2",
     "plop": "2.7.4",
     "prettier": "2.5.1",
