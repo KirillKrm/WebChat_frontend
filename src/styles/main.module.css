@@ -1,0 +1,75 @@
+.app {
+  align-items: center;
+  justify-content: center;
+  margin-top: 5%;
+}
+
+.app > *{
+  margin-bottom: 2%;
+}
+
+.app__buttons {
+  display: flex;
+  justify-content: center;
+}
+
+.app__inputName {
+  display: flex;
+  font-size: 20px;
+  justify-content: center;
+}
+
+.app__panels {
+  display: flex;
+  justify-content: center;
+}
+
+.panels__connect {
+  display: flex;
+  flex-direction: column;
+  width: 400px;
+  height: 125px;
+  border: 2px solid black;
+  margin-right: 5%;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.panels__connect p {
+  font-weight: bold;
+  font-size: 20px;
+}
+
+.connect__form{
+  display: flex;
+  flex-direction: column;
+  width: 400px;
+  height: 125px;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.connect__form button {
+  font-size: 20px;
+  width: 50%;
+}
+
+.panels__create {
+  display: flex;
+  flex-direction: column;
+  width: 400px;
+  height: 125px;
+  border: 2px solid black;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.panels__create p {
+  font-weight: bold;
+  font-size: 20px;
+}
+
+.panels__create button {
+  font-size: 20px;
+  width: 50%;
+}
