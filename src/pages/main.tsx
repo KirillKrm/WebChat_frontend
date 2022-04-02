@@ -4,15 +4,18 @@ import { Button, Camera, Input } from 'components'
 function Main() {
   return (
     <div className={styles.app}>
-      <div className={styles.app__profileData}>
+      <main className={styles.app__profileData}>
+        <a href="conv">
+          <button style={{ position: 'absolute' }}>Go Conv</button>
+        </a>
         <Camera />
-        <div className={styles.app__buttons}>
+        <article className={styles.app__buttons}>
           <Button name="M" />
           <Button name="C" />
-        </div>
+        </article>
         <Input name="Name:" />
-        <div className={styles.app__panels}>
-          <div className={styles.panels__connect}>
+        <article className={styles.app__panels}>
+          <section className={styles.panels__connect}>
             <form className={styles.connect__form}>
               <p>Connect to room</p>
               <Input name="Room ID:" />
@@ -20,15 +23,15 @@ function Main() {
                 Connect
               </button>
             </form>
-          </div>
+          </section>
           <form className={styles.panels__create}>
             <p>Create room</p>
             <button type="submit" onClick={() => alert('Create')}>
               Create
             </button>
           </form>
-        </div>
-      </div>
+        </article>
+      </main>
     </div>
   )
 }

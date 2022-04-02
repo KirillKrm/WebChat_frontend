@@ -1,30 +1,36 @@
-import styles from '../styles/conv.module.css'
+import styles from 'styles/conv.module.css'
 import { Button, Camera, Input } from 'components'
+import Script from 'next/script'
+import { useEffect, useState } from 'react'
 
 function Conv() {
+  const [randomID, setID] = useState(Math.floor(Math.random() * 1000000))
   return (
     <div className={styles.app}>
+      <a href="main">
+        <button style={{ position: 'absolute' }}>Go Main</button>
+      </a>
       <div className={styles.app__wrapper}>
-        <div className={styles.wrapper__content}>
-          <div className={styles.content__cameras}>cameras</div>
-          <div className={styles.content__rightColumn}>
-            <div className={styles.rightColumn__users}>users</div>
-            <div className={styles.rightColumn__chat}>chat</div>
-          </div>
-        </div>
-        <div className={styles.wrapper__footer}>
-          <div className={styles.footer__roomID}>
-            <p>Room ID:</p>
-          </div>
-          <div className={styles.footer__buttons}>
+        <main className={styles.wrapper__main}>
+          <article className={styles.main__cameras}>cameras</article>
+          <article className={styles.main__rightColumn}>
+            <section className={styles.rightColumn__users}>users</section>
+            <section className={styles.rightColumn__chat}>chat</section>
+          </article>
+        </main>
+        <footer className={styles.wrapper__footer}>
+          <section className={styles.footer__roomID}>
+            <p>Room ID: </p>
+          </section>
+          <section className={styles.footer__buttons}>
             <Button name="M" />
             <Button name="C" />
             <Button name="X" />
-          </div>
-          <div className={styles.footer__time}>
+          </section>
+          <section className={styles.footer__time}>
             <p>Time:</p>
-          </div>
-        </div>
+          </section>
+        </footer>
       </div>
     </div>
   )
