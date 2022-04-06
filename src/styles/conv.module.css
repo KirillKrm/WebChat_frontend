@@ -1,0 +1,190 @@
+.app ::-webkit-scrollbar {
+  width: 12px;
+}
+
+.app ::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  background-color: #dfdfdf;
+}
+
+.app ::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 6px #00000033;
+  border-radius: 10px;
+  background-color: #343434;
+}
+
+.app {
+  height: 100vh;
+  width: 100vw;
+  font-size: 20px;
+}
+
+.app__wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+}
+
+.wrapper__main {
+  display: flex;
+  flex: 1;
+  flex-direction: row;
+  gap: 8px;
+  margin: 8px;
+}
+
+.main__cameras {
+  display: flex;
+  flex: 3;
+  border-radius: 20px;
+  justify-content: center;
+  align-items: center;
+  background-color: #C4C4C4;
+  height: 655px;
+}
+
+.cameras__list {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-column-gap: 30px;
+  grid-row-gap: 15px;
+  overflow-x: hidden;
+  overflow: auto;
+  height: 655px;
+}
+
+.cameras__list > * {
+  display: flex;
+  height: 1;
+  border-radius: 20px;
+}
+
+.main__rightColumn {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: 8px;
+  justify-content: center;
+  align-items: center;
+  height: 655px;
+}
+
+.rightColumn__users {
+  display: flex;
+  height: 50%;
+  border-radius: 20px;
+  width: 100%;
+  align-items: center;
+  background-color: gray;
+  flex-direction: column;
+}
+
+.rightColumn__users h2 {
+  text-align: center;
+  margin-top: 10px;
+}
+
+.rightColumn__chat {
+  display: flex;
+  height: 50%;
+  flex-direction: column;
+  border-radius: 20px;
+  width: 100%;
+  align-items: center;
+  background-color: gray;
+}
+
+.wrapper__footer {
+  display: flex;
+  flex: 0 0 auto;
+  box-sizing: border-box;
+  height: 80px;
+  justify-content: center;
+  align-items: center;
+  background-color: grey;
+}
+
+.footer__roomID {
+  display: flex;
+  text-align: center;
+  width: 33%;
+}
+
+.footer__roomID p {
+  margin-left: 3%;
+}
+
+.footer__buttons {
+  display: flex;
+  justify-content: center;
+  width: 33%;
+}
+
+.footer__time {
+  display: flex;
+  width: 33%;
+}
+
+.footer__time p {
+  margin-left: 50%;
+}
+
+.users__list {
+  display: flex;
+  flex: 1 1 0;
+  flex-direction: column;               
+  margin-top: 8px;
+  margin-bottom: 16px;
+  width: 100%;
+  height: 100%;
+  overflow-Y: scroll;
+  gap: 8px;            
+}                
+
+.list__userStatus {
+  display: flex;
+  padding: 4px;
+  flex-direction: row;
+  background: #C4C4C4;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.chat__list {
+  display: flex;
+  flex: 1 1 0;
+  flex-direction: column;
+  margin-top: 10px;
+  border-radius: 20px;
+  background: #C4C4C4;
+  width: 92%;
+  height: 82%;
+  gap: 8px;
+  overflow-Y: scroll;
+}
+
+.list__UserMessage {
+  display: flex;
+  flex-direction: column;
+  padding-left: 15px;
+}
+
+.chat__sender {
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  width: 100%;
+}
+
+.chat__sender input {
+  padding-left: 10px;
+  font-size: 20px;
+  border-radius: 20px;
+  width: 76%;
+}
+
+.chat__sender button {
+  font-size: 20px;
+  border-radius: 20px;
+}

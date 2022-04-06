@@ -1,0 +1,85 @@
+.app {
+  display: flex;
+  height: 100vh;
+  width: 100vw;
+  align-items: center;
+  justify-content: center; 
+}
+
+.app__profileData {
+  display: flex;
+  flex-direction: column;
+  width: 800px;
+  height: 700px;
+}
+
+.app__profileData > * {
+  margin-top: 4%;
+}
+
+.app__buttons {
+  display: flex;
+  justify-content: center;
+}
+
+.app__inputName {
+  display: flex;
+  font-size: 20px;
+  justify-content: center;
+}
+
+.app__panels {
+  display: flex;
+  justify-content: center;
+  height: 20%;
+}
+
+.panels__connect {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  border: 2px solid black;
+  margin-right: 5%;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.panels__connect p {
+  font-weight: bold;
+  font-size: 20px;
+}
+
+.connect__form{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.connect__form > * {
+  margin-top: 6%;
+}
+
+.connect__form button {
+  font-size: 20px;
+  width: 50%;
+}
+
+.panels__create {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  border: 2px solid black;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.panels__create p {
+  font-weight: bold;
+  font-size: 20px;
+}
+
+.panels__create button {
+  font-size: 20px;
+  width: 50%;
+}
