@@ -8,7 +8,12 @@ function Main() {
         <a href="conv">
           <button style={{ position: 'absolute' }}>Go Conv</button>
         </a>
-        <Camera />
+        <Camera
+          userIcon={'https://cdn-icons-png.flaticon.com/512/147/147142.png'}
+          userName={'User'}
+          micOn={true}
+          key={'0'}
+        />
         <article className={styles.app__buttons}>
           <Button name="M" />
           <Button name="C" />
