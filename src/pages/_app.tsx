@@ -2,6 +2,7 @@
 import '../styles/globals.css'
 import type { AppProps } from 'next/app'
 import Head from 'next/head'
+import dynamic from 'next/dynamic'
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
@@ -14,9 +15,14 @@ function MyApp({ Component, pageProps }: AppProps) {
           rel="stylesheet"
         />
       </Head>
-      <Component {...pageProps} />
+      {/*<Component {...pageProps} />*/}
+      {typeof window === 'undefined' ? null : <Component {...pageProps} />}
     </>
   )
 }
 
-export default MyApp
+//export default MyApp
+
+export default dynamic(() => Promise.resolve(MyApp), {
+  ssr: false,
+})

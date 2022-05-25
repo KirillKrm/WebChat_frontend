@@ -1,10 +1,22 @@
+import { useState } from 'react'
 import styles from './Input.module.css'
 
-export function Input({ name }: { name: string }) {
+export function Input({
+  name,
+  handleInput,
+}: {
+  name: string
+  handleInput: any
+}) {
   return (
     <div className={styles.input}>
       <label>{name}</label>
-      <input></input>
+      <input
+        type="text"
+        onChange={(event) => {
+          handleInput(event.target.value)
+        }}
+      ></input>
     </div>
   )
 }

@@ -1,11 +1,9 @@
 import styles from 'styles/conv.module.css'
-import { Button, Camera, Input } from 'components'
-import Script from 'next/script'
+import { Button, Input, Clock, Camera } from 'components'
 import { useEffect, useState } from 'react'
 import Image from 'next/image'
+import socket from 'socket'
 
-const micOnUrl = '' //TODO
-const micOffUrl = '' //TODO
 const UserStatus = ({
   url,
   nickname,
@@ -19,11 +17,12 @@ const UserStatus = ({
     <div className={styles.list__userStatus}>
       <Image src={url} height={36} width={36} alt="User image" />
       <h4>{nickname}</h4>
-      <Button name={micOn ? 'MIC' : 'NOMIC'} />
+      <Button>{micOn ? 'MIC' : 'NOMIC'}</Button>
       {/* <Image src={micOn ? micOnUrl : micOffUrl} alt="Mic status" /> */}
     </div>
   )
 }
+
 const UserMessage = ({
   nickname,
   message,
@@ -45,34 +44,35 @@ const UserMessage = ({
   )
 }
 
-function Conv({ usersDataset, roomID, messagesDataset }: any) {
-  // const [time, setTime] = useState(0)
+export default function Conv({
+  roomID,
+  users,
+}: {
+  roomID: string
+  users: any
+}) {
+  const messagesDataset: any[] = []
+  const avatarURL = 'https://cdn-icons-png.flaticon.com/512/147/147142.png'
+  const micOn = true
 
-  // useEffect(() => {
-  //   let secTimer = setInterval(() => {
-  //     setTime(Date.now() - date)
-  //   }, 1000)
-
-  //   return () => clearInterval(secTimer)
-  // }, [date])
+  const handleSend = () => {
+    alert('Send')
+  }
 
   return (
     <div className={styles.app}>
       <a href="main">
-        <button style={{ position: 'absolute' }}>Go Main</button>
+        <button style={{ position: 'absolute', left: '0', top: '0' }}>
+          Go Main
+        </button>
       </a>
       <div className={styles.app__wrapper}>
         <main className={styles.wrapper__main}>
           <article className={styles.main__cameras}>
             <div className={styles.cameras__list}>
-              {usersDataset.map((user: any, i: any) => {
+              {users.map((userID: any, index: any) => {
                 return (
-                  <Camera
-                    userIcon={user.avatarURL}
-                    userName={user.username}
-                    micOn={user.micOn}
-                    key={user.userId}
-                  />
+                  <Camera userName={userID} key={index} stream={undefined} />
                 )
               })}
             </div>
@@ -81,13 +81,13 @@ function Conv({ usersDataset, roomID, messagesDataset }: any) {
             <section className={styles.rightColumn__users}>
               <h2>People</h2>
               <div className={styles.users__list}>
-                {usersDataset.map((user: any, i: any) => {
+                {users.map((userID: any, index: any) => {
                   return (
                     <UserStatus
-                      url={user.avatarURL}
-                      nickname={user.username}
-                      micOn={user.micOn}
-                      key={user.userId}
+                      url={avatarURL}
+                      nickname={userID}
+                      micOn={micOn}
+                      key={index}
                     />
                   )
                 })}
@@ -95,23 +95,21 @@ function Conv({ usersDataset, roomID, messagesDataset }: any) {
             </section>
             <section className={styles.rightColumn__chat}>
               <div className={styles.chat__list}>
-                {messagesDataset.map((message: any, i: any) => {
+                {messagesDataset.map((message: any, index: any) => {
                   return (
                     <UserMessage
                       nickname={message.username}
                       date={message.date}
                       message={message.text}
-                      key={message.userId}
+                      key={index}
                     />
                   )
                 })}
               </div>
-              <form className={styles.chat__sender}>
+              <div className={styles.chat__sender}>
                 <input></input>
-                <button type="submit" onClick={() => alert('Send')}>
-                  Send
-                </button>
-              </form>
+                <button onClick={handleSend}>Send</button>
+              </div>
             </section>
           </div>
         </main>
@@ -120,12 +118,12 @@ function Conv({ usersDataset, roomID, messagesDataset }: any) {
             <p>Room ID: {roomID}</p>
           </section>
           <section className={styles.footer__buttons}>
-            <Button name="M" />
-            <Button name="C" />
-            <Button name="X" />
+            <Button>M</Button>
+            <Button>C</Button>
+            <Button>X</Button>
           </section>
           <section className={styles.footer__time}>
-            <p>Time: {/*Date.now() - date*/}</p>
+            <p>Time: {<Clock />}</p>
           </section>
         </footer>
       </div>
@@ -133,93 +131,20 @@ function Conv({ usersDataset, roomID, messagesDataset }: any) {
   )
 }
 
-export async function getServerSideProps({ params }: any) {
-  const usersDataset = [
-    {
-      userId: '0',
-      username: 'User_1',
-      avatarURL: 'https://cdn-icons-png.flaticon.com/512/147/147142.png',
-      micOn: true,
-    },
-    {
-      userId: '1',
-      username: 'User_2',
-      avatarURL: 'https://cdn-icons-png.flaticon.com/512/147/147142.png',
-      micOn: false,
-    },
-    {
-      userId: '2',
-      username: 'User_3',
-      avatarURL: 'https://cdn-icons-png.flaticon.com/512/147/147142.png',
-      micOn: false,
-    },
-    {
-      userId: '3',
-      username: 'User_4',
-      avatarURL: 'https://cdn-icons-png.flaticon.com/512/147/147142.png',
-      micOn: false,
-    },
-    {
-      userId: '4',
-      username: 'User_5',
-      avatarURL: 'https://cdn-icons-png.flaticon.com/512/147/147142.png',
-      micOn: false,
-    },
-    {
-      userId: '5',
-      username: 'User_6',
-      avatarURL: 'https://cdn-icons-png.flaticon.com/512/147/147142.png',
-      micOn: false,
-    },
-    {
-      userId: '6',
-      username: 'User_7',
-      avatarURL: 'https://cdn-icons-png.flaticon.com/512/147/147142.png',
-      micOn: false,
-    },
-  ]
-  const messagesDataset = [
-    {
-      userId: '0',
-      username: 'User_1',
-      date: '15:00',
-      text: 'Hello!',
-    },
-    {
-      userId: '1',
-      username: 'User_2',
-      date: '15:01',
-      text: 'Bye!',
-    },
-    {
-      userId: '2',
-      username: 'User_3',
-      date: '15:02',
-      text: 'Bye!',
-    },
-    {
-      userId: '3',
-      username: 'User_4',
-      date: '15:03',
-      text: 'Bye!',
-    },
-    {
-      userId: '4',
-      username: 'User_5',
-      date: '15:04',
-      text: 'Bye!',
-    },
-    {
-      userId: '5',
-      username: 'User_6',
-      date: '15:04',
-      text: 'Bye!',
-    },
-  ]
-  const roomID = Math.floor(Math.random() * 1000000)
-  // const date = Date.now()
+// export async function getServerSideProps({ params }: any) {
+//   // {
+//   //   username: 'User_1',
+//   //   avatarURL: 'https://cdn-icons-png.flaticon.com/512/147/147142.png',
+//   //   micOn: true,
+//   // },
+//   const messagesDataset = [
+//     {
+//       username: 'User_1',
+//       date: '15:00',
+//       text: 'Hello!',
+//     },
+//   ]
+//   const roomID = Math.floor(Math.random() * 1000000)
 
-  return { props: { usersDataset, roomID, messagesDataset } }
-}
-
-export default Conv
+//   return { props: { roomID, messagesDataset } }
+// }

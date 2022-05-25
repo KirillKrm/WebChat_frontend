@@ -1,14 +1,25 @@
 import styles from './Camera.module.css'
 import Image from 'next/image'
+import { useEffect, useRef } from 'react'
 
 export function Camera({
   userName,
-  userIcon,
+  stream,
 }: {
   userName: string
-  userIcon: string
-  micOn: boolean
+  stream: any
 }) {
+  const videoRef = useRef(document.createElement('video'))
+  const getVideo = (stream: any) => {
+    let video = videoRef.current
+    video.srcObject = stream
+    video.play()
+  }
+
+  useEffect(() => {
+    getVideo(stream)
+  })
+
   return (
     <div className={styles.app__cam}>
       <div
@@ -21,10 +32,14 @@ export function Camera({
           height: '100%',
         }}
       >
-        <Image src={userIcon} height={36} width={36} alt="User image" />
+        <video
+          style={{ width: '100%', height: '100%', transform: 'scale(-1, 1)' }}
+          autoPlay
+          ref={videoRef}
+        ></video>
       </div>
       <label>{userName}</label>
-      <div className={styles.cam__sound}></div>
+      {/*<div className={styles.cam__sound}></div>*/}
     </div>
   )
 }

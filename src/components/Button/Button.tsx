@@ -1,9 +1,16 @@
 import styles from './Button.module.css'
 
-export function Button({ name }: { name: string }) {
+type propTypes = {
+  children?: any
+  onClick?: React.MouseEventHandler<HTMLElement>
+  className?: string
+}
+
+export function Button(Props: propTypes) {
+  const { children = '', onClick = () => {}, className = styles.btn } = Props
   return (
-    <button className={styles.btn} onClick={() => alert(name)}>
-      {name}
+    <button className={className} onClick={onClick}>
+      {children}
     </button>
   )
 }
